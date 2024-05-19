@@ -11,41 +11,47 @@
         <div class="row gx-5 justify-content-center">
             <div class="col-lg-11 col-xl-9 col-xxl-8">
                 <!-- Project Card 1-->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">Music Commissions</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div> 
-                            <img class="img-fluid" src="{% static "assets/vinyl.png" %}" alt="..." />
+                <a href="{% url "coms" %}" class="text-decoration-none" style="color: inherit;">
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center">
+                                <div class="p-5">
+                                    <h2 class="fw-bolder">Music Commissions</h2>
+                                    <p>A compilation of all my music production commissions.</p>
+                                </div> 
+                                <img class="img-fluid" src="{% static 'assets/vinyl.png' %}" alt="..." />
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Project Card 2-->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">Web Development</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="{% url "websites" %}" class="text-decoration-none" style="color: inherit;">
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center">
+                                <div class="p-5">
+                                    <h2 class="fw-bolder">Web Development</h2>
+                                    <p>Some web-sites I made using Django from Python.</p>
+                                </div>
+                                <img class="img-fluid" src="{% static "assets/cod.png" %}" alt="..." />
                             </div>
-                            <img class="img-fluid" src="{% static "assets/cod.png" %}" alt="..." />
                         </div>
                     </div>
-                </div>
+                </a>
                 <!-- Project Card 3-->
-                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">Data Science</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <a href="URL_DE_DESTINO" class="text-decoration-none" style="color: inherit;">
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center">
+                                <div class="p-5">
+                                    <h2 class="fw-bolder">Data Science</h2>
+                                    <p>Notebooks I used for Data Science & Machine Learning projects.</p>
+                                </div>
+                                <img class="img-fluid" src="{% static "assets/dat.png" %}" alt="..." />
                             </div>
-                            <img class="img-fluid" src="{% static "assets/dat.png" %}" alt="..." />
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>         
     </div>
