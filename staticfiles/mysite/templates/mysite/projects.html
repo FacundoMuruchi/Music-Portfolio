@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<!-- Projects Section-->
+<section class="py-5">
+    <div class="container px-5 mb-5">
+        <div class="text-center mb-5">
+            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-11 col-xl-9 col-xxl-8">
+                <!-- Project Card 1-->
+                <a href="{% url "coms" %}" class="text-decoration-none" style="color: inherit;">
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center flex-column flex-md-row">
+                                <div class="p-5 flex-fill">
+                                    <h2 class="fw-bolder">Music Commissions</h2>
+                                    <p>A compilation of all my music production commissions.</p>
+                                </div>
+                                <img class="img-fluid card-img" src="{% static 'assets/vinyl.png' %}" alt="..." />
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- Project Card 2-->
+                <a href="{% url "websites" %}" class="text-decoration-none" style="color: inherit;">
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center flex-column flex-md-row">
+                                <div class="p-5 flex-fill">
+                                    <h2 class="fw-bolder">Web Development</h2>
+                                    <p>Some web-sites I made using Django from Python.</p>
+                                </div>
+                                <img class="img-fluid card-img" src="{% static 'assets/cod.png' %}" alt="..." />
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <!-- Project Card 3-->
+                <a href="{% url "notebooks" %}" class="text-decoration-none" style="color: inherit;">
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                        <div class="card-body p-0">
+                            <div class="d-flex align-items-center flex-column flex-md-row">
+                                <div class="p-5 flex-fill">
+                                    <h2 class="fw-bolder">Data Science</h2>
+                                    <p>Notebooks I used for Data Science & Machine Learning projects.</p>
+                                </div>
+                                <img class="img-fluid card-img" src="{% static 'assets/dat.png' %}" alt="..." />
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>                 
+    </div>
+</section>
+
+
+<!-- Call to action section-->
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+            <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url "contact" %}">Contact me</a>
+        </div>
+    </div>
+</section>
+{% endblock body %}
