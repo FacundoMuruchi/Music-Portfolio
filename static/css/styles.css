@@ -4273,7 +4273,7 @@ textarea.form-control-lg {
 .card-img,
 .card-img-top,
 .card-img-bottom {
-  width: 100%;
+  width: 50%;
 }
 
 .card-img,
@@ -11730,5 +11730,12 @@ html {
   .profile .dots-4 {
     width: 1.5vw;
     left: -2vw;
+  }
+}
+
+/* En pantallas pequeñas (por ejemplo, menos de 768px), asegurar que el contenedor de la imagen ocupe el 100% del contenedor padre */
+@media (max-width: 768px) {
+  .card-img {
+      width: 100%;
   }
 }
