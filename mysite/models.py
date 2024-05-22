@@ -2,7 +2,7 @@ from django.db import models
 
 class Com(models.Model):
     title = models.CharField(max_length=128)
-    link = models.URLField(max_length=200)
+    preview = models.FileField(upload_to='previews/', blank=True, null=True)
     year = models.IntegerField(choices=[
         (2022, '2022'),
         (2023, '2023'),
