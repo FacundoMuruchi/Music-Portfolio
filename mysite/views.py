@@ -1,8 +1,7 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import FileResponse
+from django.shortcuts import render
 
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Com, Web, Curriculum
+from django.core.paginator import EmptyPage, PageNotAnInteger
+from .models import Com, Web
 
 from django.views.generic import ListView
 
@@ -65,10 +64,3 @@ class PostListViewWebs(ListView):
 class PostListViewDatas(ListView):
     model = Web
     template_name = "mysite/data.html"
-
-def download_cv(request):
-    curriculum = get_object_or_404(Curriculum)  # Asumiendo que solo tienes un currículum
-    response = FileResponse(curriculum.pdf.open(), as_attachment=True, filename=f"{curriculum.title}.pdf")
-    response['Content-Type'] = 'application/pdf'
-    response['Content-Disposition'] = f'attachment; filename="{curriculum.title}.pdf"'
-    return response

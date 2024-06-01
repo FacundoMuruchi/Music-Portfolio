@@ -34,10 +34,3 @@ class Data(models.Model):
 
     def __str__(self):
         return self.title
-
-class Curriculum(models.Model):
-    title = models.CharField(max_length=200)
-    pdf = models.FileField(upload_to='pdfs/')  # Almacena los archivos PDF en la carpeta 'pdfs' dentro de 'MEDIA_ROOT'
-
-    def __str__(self):
-        return self.title
