@@ -15,31 +15,32 @@
                         {% for song in object_list %}
                             <!-- Projects Card -->
                             <div class="col-md-6 mb-5">
-                                    <div class="card overflow-hidden shadow rounded-4 border-0 h-100">
-                                        <div class="card-body p-0 position-relative">
-                                            <img class="img-fluid" src="{% static song.get_image %}" alt="..." />
-                                            <h5 class="card-title text-center position-absolute w-100 text-white" style="top: 50%; transform: translateY(-50%);">{{ song.title }}</h5>
-                                            {% if song.preview %}
-                                                <audio id="audio-{{ forloop.counter }}" class="audio-player w-100 mt-3" controls>
-                                                    <source src="{{ song.preview.url }}" type="audio/mpeg">
-                                                    Your browser does not support the audio element.
-                                                </audio>
-                                            {% else %}
-                                                <p>No audio available</p>
-                                            {% endif %}
+                                <div class="card overflow-hidden shadow rounded-4 border-0 h-100">
+                                    <div class="card-body p-0 position-relative">
+                                        <img class="img-fluid" src="{% static song.get_image %}" alt="..." />
+                                        <div class="position-absolute w-100 h-100 d-flex flex-column justify-content-center align-items-center" style="top: 0; left: 0;">
+                                            <h5 class="card-title text-center text-white">{{ song.title }}</h5>
+                                            <h6 class="card-title text-center text-white">{{ song.version }}</h6>
                                         </div>
+                                        {% if song.preview %}
+                                            <audio id="audio-{{ forloop.counter }}" class="audio-player w-100 mt-3" controls>
+                                                <source src="{{ song.preview.url }}" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        {% else %}
+                                            <p>No audio available</p>
+                                        {% endif %}
                                     </div>
-                            </div> 
+                                </div>
+                            </div>
                         {% endfor %}
                     {% else %}
                         <h1>Coming soon...</h1>
                     {% endif %}
-
                     <script>
                         document.addEventListener('DOMContentLoaded', function () {
                             const audioPlayers = document.querySelectorAll('.audio-player');
                             let currentAudio = null;
-                
                             audioPlayers.forEach(player => {
                                 player.addEventListener('play', function () {
                                     if (currentAudio && currentAudio !== this) {
@@ -50,7 +51,6 @@
                             });
                         });
                     </script>
-
                 </div>
                 <!-- Paginación -->
                 <div class="pagination justify-content-center">
@@ -74,6 +74,7 @@
         </div>         
     </div>
 </section>
+
 <!-- Call to action section-->
 <section class="py-5 bg-gradient-primary-to-secondary text-white">
     <div class="container px-5 my-5">

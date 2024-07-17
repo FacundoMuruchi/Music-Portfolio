@@ -9,6 +9,12 @@ class Com(models.Model):
         (2024, '2024'),
     ])
 
+    version = models.CharField(max_length=128, choices=[
+        ('Original', 'Original'),
+        ('Remake', 'Remake'),
+        ('Alternative Version', 'Alternative Version'),
+    ], blank=True, null=True)
+
     def get_image(self):
         # Define la ruta de la imagen asociada a cada año dentro de la subcarpeta "assets" en "static"
         images = {
