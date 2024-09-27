@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from .models import Com, Web
+from .models import Com, Web, Data
 
 from django.views.generic import ListView
 
@@ -62,5 +62,5 @@ class PostListViewWebs(ListView):
     template_name = "mysite/webs.html"
 
 class PostListViewDatas(ListView):
-    model = Web
+    model = Data
     template_name = "mysite/data.html"
