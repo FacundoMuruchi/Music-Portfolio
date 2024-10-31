@@ -1,6 +1,13 @@
 from django.db import models
 
 class Com(models.Model):
+    GENRE_CHOICES = [
+        ('Rock', 'Rock'),
+        ('Jazz', 'Jazz'),
+        ('Pop', 'Pop'),
+        ('Orchestral', 'Orchestral'),
+    ]
+
     title = models.CharField(max_length=128)
     preview = models.FileField(upload_to='previews/', blank=True, null=True)
     year = models.IntegerField(choices=[
@@ -15,6 +22,8 @@ class Com(models.Model):
         ('Alternative Version', 'Alternative Version'),
     ], blank=True, null=True)
 
+    genre = models.CharField(max_length=32, choices=GENRE_CHOICES, default='Pop')  # Campo para el género de la canción
+
     def get_image(self):
         # Define la ruta de la imagen asociada a cada año dentro de la subcarpeta "assets" en "static"
         images = {
@@ -25,4 +34,4 @@ class Com(models.Model):
         return images.get(self.year, 'assets/default.jpg')  # Ruta por defecto si el año no coincide
 
     def __str__(self):
-        return f"{self.title}, {self.year}"
+        return f"{self.title}, {self.year}, {self.genre}"

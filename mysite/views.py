@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from .models import Com
@@ -28,25 +29,20 @@ class PostListView(ListView):
     model = Com
     template_name = "mysite/coms/coms-list.html"
     context_object_name = 'object_list'
-    paginate_by = 6  # Muestra 6 proyectos por página
+    paginate_by = 6
 
     def get_queryset(self):
-        year = self.kwargs.get('year')  # Obtiene el año desde los parámetros de la URL
-        return Com.objects.filter(year=year)
+        year = self.kwargs.get('year')
+        genre = self.request.GET.get('genre', '')
+        queryset = Com.objects.filter(year=year)
+        if genre:
+            queryset = queryset.filter(genre=genre)
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['year'] = self.kwargs.get('year')  # Añade el año al contexto
-        paginator = context['paginator']
-        page = self.request.GET.get('page')
-        
-        try:
-            # Intenta obtener la página solicitada
-            context['object_list'] = paginator.page(page)
-        except PageNotAnInteger:
-            # Si la página no es un número entero, devuelve la primera página.
-            context['object_list'] = paginator.page(1)
-        except EmptyPage:
-            # Si la página está fuera de rango (p.ej. 9999), devuelve la última página de resultados.
-            context['object_list'] = paginator.page(paginator.num_pages)
+        context['year'] = self.kwargs.get('year')
+        context['selected_genre'] = self.request.GET.get('genre', '')
+        # Agrega la lista de géneros al contexto
+        context['genres'] = Com.GENRE_CHOICES
         return context
