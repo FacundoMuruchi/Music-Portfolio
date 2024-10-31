@@ -26,17 +26,3 @@ class Com(models.Model):
 
     def __str__(self):
         return f"{self.title}, {self.year}"
-
-class Web(models.Model):
-    title = models.CharField(max_length=128)
-    link = models.URLField(max_length=200)
-
-    def __str__(self):
-        return self.title
-    
-class Data(models.Model):
-    title = models.CharField(max_length=128)
-    link = models.URLField(max_length=200)
-
-    def __str__(self):
-        return self.title

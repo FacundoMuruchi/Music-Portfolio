@@ -1,17 +1,11 @@
 from django.shortcuts import render
 
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from .models import Com, Web, Data
+from .models import Com
 
 from django.views.generic import ListView
 
 # Create your views here.
-def resume(request):
-    return render(
-        request=request,
-        template_name='mysite/resume.html'
-    )
-
 def projects(request):
     return render(
         request=request,
@@ -56,11 +50,3 @@ class PostListView(ListView):
             # Si la página está fuera de rango (p.ej. 9999), devuelve la última página de resultados.
             context['object_list'] = paginator.page(paginator.num_pages)
         return context
-    
-class PostListViewWebs(ListView):
-    model = Web
-    template_name = "mysite/webs.html"
-
-class PostListViewDatas(ListView):
-    model = Data
-    template_name = "mysite/data.html"
