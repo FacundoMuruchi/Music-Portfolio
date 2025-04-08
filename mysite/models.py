@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class Com(models.Model):
     GENRE_CHOICES = [
@@ -9,12 +10,10 @@ class Com(models.Model):
     ]
 
     title = models.CharField(max_length=128)
+
     preview = models.FileField(upload_to='previews/', blank=True, null=True)
-    year = models.IntegerField(choices=[
-        (2022, '2022'),
-        (2023, '2023'),
-        (2024, '2024'),
-    ])
+
+    year = models.IntegerField(default=datetime.now().year)
 
     version = models.CharField(max_length=128, choices=[
         ('Original', 'Original'),
@@ -30,6 +29,7 @@ class Com(models.Model):
             2022: 'assets/com22.jpg',
             2023: 'assets/com23.jpg',
             2024: 'assets/vinyl.png',
+            2025: 'assets/com25.jpg',
         }
         return images.get(self.year, 'assets/default.jpg')  # Ruta por defecto si el año no coincide
 

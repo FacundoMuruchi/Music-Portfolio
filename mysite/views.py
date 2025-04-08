@@ -7,11 +7,6 @@ from .models import Com
 from django.views.generic import ListView
 
 # Create your views here.
-def projects(request):
-    return render(
-        request=request,
-        template_name='mysite/projects.html'
-    )
 
 def contact(request):
     return render(
