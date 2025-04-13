@@ -3,4 +3,6 @@ from .models import Com
 
 # Register your models here.
 
-admin.site.register(Com)
+@admin.register(Com)
+class ComAdmin(admin.ModelAdmin):
+    exclude = ('title', 'year')
